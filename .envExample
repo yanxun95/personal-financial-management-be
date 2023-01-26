@@ -10,4 +10,4 @@ PLAID_SECRET=
 PLAID_ENV=
 PLAID_COUNTRY_CODES=
 # PLAID_PRODUCTS=payment_initiation
-PLAID_PRODUCTS=auth,transactionsrm 
+PLAID_PRODUCTS=auth,transactionsrm

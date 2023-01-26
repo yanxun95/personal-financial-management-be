@@ -1,5 +1,6 @@
 import express from "express";
 import userRouter from "./services/user/index.js";
+import plaidRouter from "./services/plaid/index.js";
 import {
   notFoundHandler,
   badRequestHandler,
@@ -10,6 +11,7 @@ import {
 import passport from "passport";
 import googleStrategy from "./auth/oAuth.js";
 import session from "express-session";
+import cors from "cors";
 
 const app = express();
 
@@ -22,6 +24,7 @@ app.use(
   })
 );
 //MIDDLEWARES
+app.use(cors());
 passport.use("google", googleStrategy);
 app.use(express.json());
 app.use(passport.initialize());
@@ -29,6 +32,7 @@ app.use(passport.initialize());
 
 //ROUTERS
 app.use("/user", userRouter);
+app.use("/plaid", plaidRouter);
 
 //ERROR
 app.use(badRequestHandler);
